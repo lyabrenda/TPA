@@ -1,0 +1,52 @@
+﻿using System;
+using static System.Console;
+
+namespace teste
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            janela(0, 0, 79, 24, 15, 7, 'd');
+            janela(31, 7, 51, 12, 13, 7, 's');
+
+            ReadKey();
+        } //fecha o Main
+
+        static void janela(int c1, int l1, int c2, int l2, int corl, int corf, char borda )
+        {
+            // ║ -> 186 - linha vertical
+            // ╗ - > 187 - canto superior direito
+            // ╝ -> 188 - canto inferior direito
+            // ╚ -> 200 - canto inferior esuqerfo
+            // ╔ -> 201 - canto superior esquerdo 
+            // ═ -> 205 - linha horizontal
+
+            BackgroundColor = (ConsoleColor)corl;
+            ForegroundColor = (ConsoleColor)corf;
+
+            for (int x = l1; x <= l2; x++)
+            {
+                SetCursorPosition(c1, x); Write("║");
+                SetCursorPosition(c2, x); Write("║");
+            }
+
+            SetCursorPosition(c1, l1); Write(new string('═', c2 - c1));
+            SetCursorPosition(c1, l2); Write(new string('═', c2 - c1));
+
+            //acertando as vertices
+            SetCursorPosition(c1, l1); Write('╔');
+            SetCursorPosition(c2, l1); Write('╗');
+            SetCursorPosition(c1, l2); Write('╚');
+            SetCursorPosition(c2, l2); Write('╝');
+
+            for (int x = l1+1; x < l2; x++)
+            {
+
+                SetCursorPosition(c1+1, x);
+                Write(new string(' ', c2-c1-1));
+            }
+        }
+    }
+}
