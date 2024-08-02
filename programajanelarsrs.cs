@@ -6,6 +6,7 @@ namespace teste
     class Program
     {
         //o tamanho do prompt é 80 por 25
+        //fazer um programa que deixe as primeiras letras dos nomes em caixa alta e um que conta quantas letras cada nome ou frase tem
         
 
         static void Main(string[] args)
