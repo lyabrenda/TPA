@@ -5,6 +5,8 @@ namespace teste
 {
     class Program
     {
+        //o tamanho do prompt é 80 por 25
+        
 
         static void Main(string[] args)
         {
