@@ -1,0 +1,113 @@
+using System;
+using static System.Console;
+
+namespace teste
+{
+    class Program
+    {
+        //o tamanho do prompt é 80 por 25
+        //fazer um programa que deixe as primeiras letras dos nomes em caixa alta e um que conta quantas
+        //letras cada nome ou frase tem
+
+
+        static void Main(string[] args)
+        {
+            janela(0, 0, 79, 24, 15, 7, 's');
+            janela(18, 8, 64, 16, 13, 7, 's');
+
+            //caixas de texto
+            janela(0, 0, 79, 4, 13, 7, 's');
+            janela(0, 20, 79, 24, 13, 7, 's');
+
+            SetCursorPosition(28, 2);Write("Bem Vindo ao menu das divas");
+
+            SetCursorPosition(23, 10); Write("oque importa é ser bonita e cheirosa");
+            SetCursorPosition(30, 14); Write("xoxo, gossip girl baby!!");
+
+            SetCursorPosition(33, 22); Write("Digite sua opção: ");
+
+            ReadKey();
+        } //fecha o Main
+
+        static void janela(int c1, int l1, int c2, int l2, int corl, int corf, char borda)
+        {
+            // ║ -> 186 - linha vertical (lv)
+            // ╗ - > 187 - canto superior direito (csd)
+            // ╝ -> 188 - canto inferior direito (cid)
+            // ╚ -> 200 - canto inferior esuqerfo (cie)
+            // ╔ -> 201 - canto superior esquerdo (cse)
+            // ═ -> 205 - linha horizontal (lh)
+
+
+            //conta letras
+            // entrar uma frase  ( utilizar o lenght para contagem de letras )
+            // verificar a frase e a cada vez que pssar por uma letra verificar se por
+            // edxemplo (a) existe, e contabilizar essa letra em uma varuavel
+            //dizer quantos caracteres existe (nome da variavel.substring = a partir do i pegue tantas bletras,
+            //apos isso analisar ela e ver se ela pode ser contabilizada na variacel)
+            //contabilizar espaços
+
+
+            //zenit polar
+            //  criptografia,
+
+
+            //letreiro
+            //deliza letras
+            //corrige nomes
+
+
+            char lv =' ', csd = ' ', cid = ' ', cie = ' ', cse = ' ', lh = ' ';
+
+            switch (borda)
+            {
+                case 'd':
+                    lv = '║';
+                    csd = '╗';
+                    cid = '╝';
+                    cie = '╚';
+                    cse = '╔';
+                    lh = '═';
+                    break;
+
+                case 's':
+                    lv = '│'; //179
+                    csd = '┐'; //194
+                    cid = '┘'; //217
+                    cie = '└'; //192
+                    cse = '┌'; //218
+                    lh = '─'; //196
+                    break;
+
+                default:
+                    break;
+            }
+
+            BackgroundColor = (ConsoleColor)corl;
+            ForegroundColor = (ConsoleColor)corf;
+
+            for (int x = l1; x <= l2; x++)
+            {
+                SetCursorPosition(c1, x); Write(lv);
+                SetCursorPosition(c2, x); Write(lv);
+            }
+
+            SetCursorPosition(c1, l1); Write(new string(lh, c2 - c1));
+            SetCursorPosition(c1, l2); Write(new string(lh, c2 - c1));
+
+            //acertando as vertices
+            SetCursorPosition(c1, l1); Write(cse);
+            SetCursorPosition(c2, l1); Write(csd);
+            SetCursorPosition(c1, l2); Write(cie);
+            SetCursorPosition(c2, l2); Write(cid);
+
+            //preenchendo a janela
+            for (int x = l1 + 1; x < l2; x++)
+            {
+
+                SetCursorPosition(c1 + 1, x);
+                Write(new string(' ', c2 - c1 - 1));
+            }
+        }
+    }
+}
