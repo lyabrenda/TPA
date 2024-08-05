@@ -25,6 +25,7 @@ namespace teste
             SetCursorPosition(30, 14); Write("xoxo, gossip girl baby!!");
 
             SetCursorPosition(33, 22); Write("Digite sua opção: ");
+            int opc = Read();
 
             ReadKey();
         } //fecha o Main
@@ -32,7 +33,7 @@ namespace teste
         static void janela(int c1, int l1, int c2, int l2, int corl, int corf, char borda)
         {
             // ║ -> 186 - linha vertical (lv)
-            // ╗ - > 187 - canto superior direito (csd)
+            // ╗ -> 187 - canto superior direito (csd)
             // ╝ -> 188 - canto inferior direito (cid)
             // ╚ -> 200 - canto inferior esuqerfo (cie)
             // ╔ -> 201 - canto superior esquerdo (cse)
@@ -58,6 +59,7 @@ namespace teste
 
 
             char lv =' ', csd = ' ', cid = ' ', cie = ' ', cse = ' ', lh = ' ';
+
 
             switch (borda)
             {
